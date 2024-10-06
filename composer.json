@@ -1,0 +1,42 @@
+{
+    "name": "codewisdoms/compress-logs",
+    "description": "Compresses old stack logs",
+    "keywords": [
+        "laravel",
+        "compress-logs"
+    ],
+    "homepage": "https://github.com/codewisdoms/compress-logs",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "CodeWisdoms"
+        }
+    ],
+    "require": {
+        "illuminate/support": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Codewisdoms\\CompressLogs\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Codewisdoms\\CompressLogs\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Codewisdoms\\CompressLogs\\CompressLogsServiceProvider"
+            ],
+            "aliases": {
+                "CompressLogs": "Codewisdoms\\CompressLogs\\CompressLogsFacade"
+            }
+        }
+    }
+}
