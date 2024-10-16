@@ -20,6 +20,9 @@ class LogCompressCommand extends Command
         $files = scandir($path);
         foreach ($files as $file) {
             if (in_array($file, ['.', '..', '.gitkeep', '.gitignore', 'laravel.log', sprintf('laravel-%s.log', date('Y-m-d'))]) || preg_match('@.gz$@', $file)) {
+                if (!in_array($file, ['.', '..']) && is_dir($path . DIRECTORY_SEPARATOR . $file)) {
+                    self::processDir($path . DIRECTORY_SEPARATOR . $file);
+                }
                 continue;
             }
             $file = $path . DIRECTORY_SEPARATOR . $file;
